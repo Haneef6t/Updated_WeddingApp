@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Poppins", sans-serif;
+  --color-wedding-maroon: #5a0f1c;
+  --color-wedding-gold: #d4af37;
+  --color-wedding-cream: #f8f1e7;
+}
+
+@layer base {
+  body {
+    @apply bg-wedding-cream text-wedding-maroon font-sans overflow-x-hidden;
+  }
+}
