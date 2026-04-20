@@ -6,6 +6,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Calendar, Heart, Clock, Send, ChevronDown } from 'lucide-react';
+import couplePhoto from './MyImage-1776680179-00.jpg';
 
 // --- Wedding Configuration ---
 // PASTE YOUR IMAGE LINKS HERE
@@ -407,8 +408,60 @@ export default function App() {
           </p>
         </Section>
 
+        {/* Couple Portrait Section */}
+        <Section
+          bgImage="https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80"
+          className="snap-start"
+          overlayClassName="bg-black/50"
+        >
+          <div className="max-w-2xl mx-auto w-full px-4 flex flex-col items-center">
+            <motion.p
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-wedding-gold/80 uppercase tracking-[0.3em] text-xs md:text-sm mb-6 font-light"
+            >
+              A Moment Together
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, ease: "easeOut" }}
+              className="relative w-full rounded-3xl overflow-hidden border-2 border-wedding-gold/40 shadow-[0_0_60px_rgba(212,175,55,0.25)]"
+            >
+              <img
+                src={couplePhoto}
+                alt="Rizwana & Noor Mohammad"
+                className="w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-6 left-0 right-0 text-center pointer-events-none">
+                <p className="font-serif text-wedding-gold text-2xl md:text-4xl drop-shadow-lg tracking-wider">
+                  Rizwana &amp; Noor Mohammad
+                </p>
+                <p className="text-wedding-cream/70 text-sm mt-1 tracking-widest">14th May 2026</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="flex items-center gap-4 mt-8"
+            >
+              <div className="h-px w-16 bg-wedding-gold/40" />
+              <Heart className="text-wedding-gold w-5 h-5" fill="currentColor" />
+              <div className="h-px w-16 bg-wedding-gold/40" />
+            </motion.div>
+          </div>
+        </Section>
+
         {/* Blessings Section */}
-        <Section bgImage="https://picsum.photos/seed/wedding5/1920/1080" className="snap-start">
+        <Section bgImage="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920&q=80" className="snap-start" overlayClassName="bg-black/55">
           <div className="max-w-xl mx-auto w-full px-4">
             <h2 className="font-serif text-wedding-gold text-3xl md:text-4xl mb-8">Send Your Blessings</h2>
             
