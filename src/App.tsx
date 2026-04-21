@@ -7,6 +7,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Calendar, Heart, Clock, Send, ChevronDown } from 'lucide-react';
 import couplePhoto from './MyImage-1776680179-00.jpg';
+import hari6908Photo from './HARI6908.JPG';
 
 // --- Wedding Configuration ---
 // PASTE YOUR IMAGE LINKS HERE
@@ -21,6 +22,7 @@ const WEDDING_IMAGES = {
     "https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/b145b85c-4097-4712-80b5-22a188387e26.png",
     "https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/76d0b8e5-f6c5-4407-8e26-7c5f6880e196.jpeg",
     "https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/86c9edbb-d883-44a8-97a0-3e94b9a7c97a.jpeg",
+    hari6908Photo,
   ]
 };
 
