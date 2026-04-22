@@ -8,21 +8,30 @@ import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Calendar, Heart, Clock, Send, ChevronDown } from 'lucide-react';
 import couplePhoto from './MyImage-1776680179-00.jpg';
 import hari6908Photo from './HARI6908.JPG';
+import welcomeBg from './87562.jpg';
+import bridePhoto from './bride.png';
+import groomPhoto from './groom.png';
+import groomFamilyPhoto from './groom_fam.JPG';
+import brideFamPhoto from './bride_fam.jpg';
+import memory3Photo from './memory3.jpg';
+import memory4Photo from './memory4.jpg';
+import childrenPhoto from './children.jpg';
+import children2Photo from './children2.jpg';
 
 // --- Wedding Configuration ---
 // PASTE YOUR IMAGE LINKS HERE
 const WEDDING_IMAGES = {
-  welcomeBackground: "https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/ec3fcf2a-b207-4dec-bd24-a19931ecf028.jpeg",
-  bridePhoto: "https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/c37ab4cd-a5be-41eb-85bb-c982fbf8f5d2.png",
-  groomPhoto: "https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/7be12f09-b1fe-47a3-90fd-7fc5b35af693.png",
+  welcomeBackground: welcomeBg,
+  bridePhoto: bridePhoto,
+  groomPhoto: groomPhoto,
   memories: [
-    "https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/fae48d42-3cb8-4077-b64d-bb18660e63d7.jpeg",
-    "https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/5685e671-cc6d-4666-99d9-ab2306f12354.jpeg",
-    "https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/9928de3e-fa6c-4b35-a6ae-dcf8e8d883fc.png",
-    "https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/b145b85c-4097-4712-80b5-22a188387e26.png",
-    "https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/76d0b8e5-f6c5-4407-8e26-7c5f6880e196.jpeg",
-    "https://pub-1407f82391df4ab1951418d04be76914.r2.dev/uploads/86c9edbb-d883-44a8-97a0-3e94b9a7c97a.jpeg",
-    hari6908Photo,
+    groomFamilyPhoto,  // memory 1
+    brideFamPhoto,     // memory 2
+    memory3Photo,      // memory 3
+    memory4Photo,      // memory 4
+    childrenPhoto,     // memory 5
+    children2Photo,    // memory 6
+    hari6908Photo,     // memory 7
   ]
 };
 
@@ -36,25 +45,25 @@ interface TimeLeft {
 
 // --- Components ---
 
-const Section = ({ 
-  children, 
-  bgImage, 
+const Section = ({
+  children,
+  bgImage,
   className = "",
   overlayClassName = "bg-black/50",
   bgPosition = "bg-center",
   topContent
-}: { 
-  children: React.ReactNode; 
-  bgImage: string; 
+}: {
+  children: React.ReactNode;
+  bgImage: string;
   className?: string;
   overlayClassName?: string;
   bgPosition?: string;
   topContent?: React.ReactNode;
 }) => (
-  <section 
+  <section
     className={`relative min-h-screen flex flex-col items-center justify-center text-center p-6 overflow-hidden ${className}`}
   >
-    <motion.div 
+    <motion.div
       initial={{ scale: 1 }}
       whileInView={{ scale: 1.05 }}
       transition={{ duration: 10, ease: "linear" }}
@@ -62,14 +71,14 @@ const Section = ({
       style={{ backgroundImage: `url(${bgImage})` }}
     />
     <div className={`absolute inset-0 z-0 ${overlayClassName}`} />
-    
+
     {topContent && (
       <div className="absolute top-12 left-0 right-0 z-20 px-6">
         {topContent}
       </div>
     )}
 
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -145,13 +154,13 @@ export default function App() {
       {/* Curtain Overlay */}
       <AnimatePresence>
         {!isOpen && (
-          <motion.div 
+          <motion.div
             className="fixed inset-0 z-[100] flex overflow-hidden touch-none"
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, delay: 0.5 }}
           >
             {/* Left Curtain */}
-            <motion.div 
+            <motion.div
               initial={{ x: 0 }}
               exit={{ x: "-100%", skewX: -5 }}
               transition={{ duration: 1.8, ease: [0.45, 0, 0.55, 1] }}
@@ -161,7 +170,7 @@ export default function App() {
             </motion.div>
 
             {/* Right Curtain */}
-            <motion.div 
+            <motion.div
               initial={{ x: 0 }}
               exit={{ x: "100%", skewX: 5 }}
               transition={{ duration: 1.8, ease: [0.45, 0, 0.55, 1] }}
@@ -169,7 +178,7 @@ export default function App() {
             >
               <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/padded-little.png')] shadow-inner" />
             </motion.div>
-            
+
             <div className="absolute inset-0 flex flex-col items-center justify-center z-50 text-white p-6">
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -179,14 +188,14 @@ export default function App() {
                 className="text-center"
               >
                 <motion.div
-                  animate={{ 
+                  animate={{
                     scale: [1, 1.1, 1],
                     rotate: [0, 5, -5, 0]
                   }}
-                  transition={{ 
-                    duration: 4, 
+                  transition={{
+                    duration: 4,
                     repeat: Infinity,
-                    ease: "easeInOut" 
+                    ease: "easeInOut"
                   }}
                 >
                   <Heart className="w-16 h-16 text-wedding-gold mx-auto mb-6 drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]" />
@@ -195,7 +204,7 @@ export default function App() {
                   Welcome to our <br /> <span className="text-wedding-gold">Ghar Ki Pehli Shaadi</span>
                 </h1>
                 <p className="text-wedding-cream/80 text-lg md:text-xl mb-12 font-light tracking-[0.2em] uppercase">Wedding Invitation</p>
-                <button 
+                <button
                   onClick={() => setIsOpen(true)}
                   className="group relative px-12 py-5 bg-wedding-gold text-wedding-maroon font-bold rounded-full overflow-hidden transition-all duration-500 shadow-[0_10px_40px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_50px_rgba(212,175,55,0.4)] active:scale-95 uppercase tracking-widest text-sm min-h-[56px]"
                 >
@@ -211,19 +220,19 @@ export default function App() {
       {/* Floating Action Button */}
       <AnimatePresence>
         {isOpen && showFab && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.5, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.5, y: 20 }}
             className="fixed bottom-8 right-6 z-[90] flex flex-col gap-4"
           >
-            <button 
+            <button
               onClick={handleShare}
               className="w-14 h-14 bg-white text-wedding-maroon rounded-full shadow-2xl flex items-center justify-center border border-wedding-gold/20 active:scale-90 transition-transform"
             >
               <Send size={24} className="-rotate-45" />
             </button>
-            <button 
+            <button
               onClick={openMap}
               className="w-14 h-14 bg-wedding-gold text-wedding-maroon rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform"
             >
@@ -235,10 +244,10 @@ export default function App() {
 
       {/* Main Content */}
       <div className={`${!isOpen ? 'h-screen overflow-hidden' : 'scroll-smooth'}`}>
-        
+
         {/* Welcome Section */}
-        <Section 
-          bgImage={WEDDING_IMAGES.welcomeBackground} 
+        <Section
+          bgImage={WEDDING_IMAGES.welcomeBackground}
           className="snap-start"
           overlayClassName="bg-black/30"
           bgPosition="bg-[center_top]"
@@ -265,14 +274,14 @@ export default function App() {
         <Section bgImage="https://picsum.photos/seed/couple-bg/1920/1080" className="snap-start">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto px-4">
             {/* The Bride */}
-            <motion.div 
+            <motion.div
               whileHover={{ y: -10 }}
               className="bg-white/10 backdrop-blur-md p-5 md:p-6 rounded-2xl border border-wedding-gold/30 shadow-2xl relative"
             >
               <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden mb-6 border-2 border-wedding-gold/20">
-                <img 
-                  src={WEDDING_IMAGES.bridePhoto} 
-                  alt="The Bride" 
+                <img
+                  src={WEDDING_IMAGES.bridePhoto}
+                  alt="The Bride"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -286,14 +295,14 @@ export default function App() {
             </motion.div>
 
             {/* The Groom */}
-            <motion.div 
+            <motion.div
               whileHover={{ y: -10 }}
               className="bg-white/10 backdrop-blur-md p-5 md:p-6 rounded-2xl border border-wedding-gold/30 shadow-2xl relative"
             >
               <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden mb-6 border-2 border-wedding-gold/20">
-                <img 
-                  src={WEDDING_IMAGES.groomPhoto} 
-                  alt="The Groom" 
+                <img
+                  src={WEDDING_IMAGES.groomPhoto}
+                  alt="The Groom"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -313,8 +322,8 @@ export default function App() {
           <div className="border-2 border-wedding-gold/30 p-6 md:p-16 rounded-sm inline-block mx-4">
             <h2 className="font-serif text-wedding-gold text-3xl md:text-5xl mb-8">Invitation</h2>
             <p className="text-white text-base md:text-2xl leading-relaxed max-w-2xl mx-auto font-light">
-              With the blessings of Allah and our beloved parents, 
-              we cordially invite you to celebrate the Nikah and Valima 
+              With the blessings of Allah and our beloved parents,
+              we cordially invite you to celebrate the Nikah and Valima
               of our beloved children.
             </p>
             <div className="mt-10 flex justify-center gap-4">
@@ -335,7 +344,7 @@ export default function App() {
               <p className="text-lg md:text-xl mb-2">Thursday, 14th May 2026</p>
               <p className="text-wedding-cream/70 text-sm md:text-base">12:00 PM Onwards</p>
               <p className="text-wedding-cream/70 mb-6 text-sm md:text-base">RRR Convention Hall, Anantapur</p>
-              <button 
+              <button
                 onClick={openMap}
                 className="flex items-center gap-2 mx-auto px-8 py-3 bg-transparent border-2 border-wedding-gold text-wedding-gold rounded-full hover:bg-wedding-gold hover:text-wedding-maroon active:scale-95 transition-all font-bold text-sm uppercase tracking-widest min-h-[48px]"
               >
@@ -349,8 +358,8 @@ export default function App() {
               <h3 className="font-serif text-2xl md:text-3xl mb-4 text-wedding-gold">Valima</h3>
               <p className="text-lg md:text-xl mb-2">Friday, 15th May 2026</p>
               <p className="text-wedding-cream/70 text-sm md:text-base">11:00 AM Onwards</p>
-               <p className="text-wedding-cream/70 mb-6 text-sm md:text-base">N S banquet hall, Anantapur</p>
-               <button 
+              <p className="text-wedding-cream/70 mb-6 text-sm md:text-base">N S banquet hall, Anantapur</p>
+              <button
                 onClick={openValimaMap}
                 className="flex items-center gap-2 mx-auto px-8 py-3 bg-transparent border-2 border-wedding-gold text-wedding-gold rounded-full hover:bg-wedding-gold hover:text-wedding-maroon active:scale-95 transition-all font-bold text-sm uppercase tracking-widest min-h-[48px]"
               >
@@ -385,16 +394,15 @@ export default function App() {
           <div className="w-full max-w-5xl mx-auto px-4">
             <div className="grid grid-cols-2 gap-3 md:gap-8">
               {WEDDING_IMAGES.memories.map((img, i) => (
-                <motion.div 
+                <motion.div
                   key={i}
-                  className={`rounded-2xl overflow-hidden shadow-2xl border-2 md:border-4 border-wedding-gold/20 relative group ${
-                    i === 0 || i === 1 || i >= 4 ? 'col-span-2 aspect-[16/9]' : 'aspect-[4/5]'
-                  }`}
+                  className={`rounded-2xl overflow-hidden shadow-2xl border-2 md:border-4 border-wedding-gold/20 relative group ${i === 0 || i === 1 || i >= 4 ? 'col-span-2 aspect-[16/9]' : 'aspect-[4/5]'
+                    }`}
                   whileHover={{ scale: 1.02, rotate: 1 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <img 
-                    src={img} 
+                  <img
+                    src={img}
                     alt={`Memory ${i + 1}`}
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
@@ -466,9 +474,9 @@ export default function App() {
         <Section bgImage="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920&q=80" className="snap-start" overlayClassName="bg-black/55">
           <div className="max-w-xl mx-auto w-full px-4">
             <h2 className="font-serif text-wedding-gold text-3xl md:text-4xl mb-8">Send Your Blessings</h2>
-            
+
             {submissionStatus === 'success' ? (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="bg-wedding-gold/20 backdrop-blur-md p-8 rounded-2xl border border-wedding-gold text-white text-center"
@@ -478,7 +486,7 @@ export default function App() {
                 </div>
                 <h3 className="text-2xl font-serif mb-2">Thank You!</h3>
                 <p>Your blessings have been sent to our hearts.</p>
-                <button 
+                <button
                   onClick={() => setSubmissionStatus('idle')}
                   className="mt-6 text-wedding-gold underline text-sm"
                 >
@@ -486,12 +494,12 @@ export default function App() {
                 </button>
               </motion.div>
             ) : (
-              <form 
-                className="space-y-4" 
+              <form
+                className="space-y-4"
                 onSubmit={async (e) => {
                   e.preventDefault();
                   if (submissionStatus === 'sending') return;
-                  
+
                   const formData = new FormData(e.currentTarget);
                   const name = formData.get('name') as string;
                   const message = formData.get('message') as string;
@@ -505,7 +513,7 @@ export default function App() {
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify({ name, message }),
                     });
-                    
+
                     if (response.ok) {
                       setSubmissionStatus('success');
                     } else {
@@ -517,26 +525,26 @@ export default function App() {
                   }
                 }}
               >
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="name"
                   required
-                  placeholder="Your Name" 
+                  placeholder="Your Name"
                   className="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-4 text-white placeholder:text-white/40 focus:outline-none focus:border-wedding-gold transition-colors text-base"
                 />
-                <textarea 
+                <textarea
                   name="message"
                   required
-                  placeholder="Your Blessings & Wishes" 
+                  placeholder="Your Blessings & Wishes"
                   rows={4}
                   className="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-4 text-white placeholder:text-white/40 focus:outline-none focus:border-wedding-gold transition-colors text-base"
                 />
-                
+
                 {submissionStatus === 'error' && (
                   <p className="text-red-400 text-sm text-center">Something went wrong. Please try again.</p>
                 )}
 
-                <button 
+                <button
                   type="submit"
                   disabled={submissionStatus === 'sending'}
                   className="w-full py-5 bg-wedding-gold text-wedding-maroon font-bold rounded-xl hover:bg-white active:scale-95 disabled:opacity-50 disabled:scale-100 transition-all flex items-center justify-center gap-2 shadow-lg uppercase tracking-widest text-sm min-h-[56px]"
@@ -564,7 +572,7 @@ export default function App() {
             <div className="h-px bg-wedding-gold/20 w-24 mx-auto mb-8" />
             <p className="text-wedding-cream/40 text-[10px] leading-relaxed">
               Designed with ❤️ by Karishma <br />
-              Conceptualized by Haneef <br/>
+              Conceptualized by Haneef <br />
               © 2026 Wedding Invitation
             </p>
           </div>
